@@ -97,9 +97,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn'	=> '',
-    'hostname' => 'localhost:3306',
+    'hostname' => 'localhost',
     'username' => 'root',
-    'password' => '123456',
+    'password' => '',
     'database' => 'encuestas',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',

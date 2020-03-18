@@ -1,4 +1,5 @@
 <?php
+require_once 'Model.php';
 use Entities\Usuario;
 
 class UsuarioModel extends Model{
@@ -18,11 +19,11 @@ class UsuarioModel extends Model{
 
 
     public function existeUsuario($unUsuario, $unaContrasenia = null) : bool{
-        return (parent::existe(Usuario::class, ['nombreDeUsuario'=>$unUsuario])) ;
+        return (parent::existe(Usuario::class, array('nombreDeUsuario'=>$unUsuario)));
     }
 
     private function validaContrasenia($unUsuario, $unaContrasenia) : bool{
-        $unResultado = $this->ejecutarSql("SELECT * FROM usuario u where u.usuario='{$unUsuario}' and u.contrasenia='{$unaContrasenia}'");
+        $unResultado = $this->ejecutarSql("SELECT * FROM usuario u where u.nombreDeUsuario='{$unUsuario}' and u.contrasenia='{$unaContrasenia}'");
         return (count($unResultado)>0);
     }
     

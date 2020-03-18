@@ -9,15 +9,16 @@ class LoginController extends BaseController {
         parent::__construct();
     }
 
-    private function usuarioModel() : UsuarioModel{
+    public function usuarioModel() : UsuarioModel{
         return parent::cargar('model', "UsuarioModel");
     }
 
     public function ingresar(){
-        if(parent::hayUsuarioLogueado()){
+        if(self::hayUsuarioLogueado()){
             redirect("principal");
         }
-        else self::smarty()->display("login.tpl");
+        else
+            self::smarty()->display("login.tpl");
     }
 
     public function login($internal = false){
@@ -28,15 +29,11 @@ class LoginController extends BaseController {
         $modelUsuario = parent::cargar('model', "UsuarioModel");
         try{
             $modelUsuario->loguear($unUsuario, $contrasenia);
-            header("Content-Type: text/json; charset=utf8");
-            echo json_encode(array('msj' => "login-ok"));
+            header('Location:'.base_url()."principal");
         }
         catch (Exception $ex){
-            if(!$internal){
-                header("Content-Type: text/json; charset=utf8");
-                echo json_encode(array('msj' => $ex->getMessage()));
-            }
-            else return $ex->getMessage();
+            parent::smarty()->assign("error",$ex->getMessage());
+            $this->ingresar();
         }
     }
    
