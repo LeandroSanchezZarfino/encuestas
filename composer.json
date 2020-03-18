@@ -1,0 +1,44 @@
+{
+	"description": "The CodeIgniter framework",
+	"name": "codeigniter/framework",
+	"type": "project",
+	"homepage": "https://codeigniter.com",
+	"license": "MIT",
+	"support": {
+		"forum": "http://forum.codeigniter.com/",
+		"wiki": "https://github.com/bcit-ci/CodeIgniter/wiki",
+		"slack": "https://codeigniterchat.slack.com",
+		"source": "https://github.com/bcit-ci/CodeIgniter"
+	},
+	"require": {
+		"php": ">=7.0",
+		"doctrine/orm": "2.4.*",
+        "symfony/yaml": "2.*",
+		"doctrine/annotations": "^1.6",
+		"doctrine/common": "^2.9",
+		"smarty/smarty": "~3.1",
+		"pagos360/sdk": "^0.0.2"
+	},
+	"suggest": {
+		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	},
+	"require-dev": {
+		"mikey179/vfsStream": "1.1.*",
+		"phpunit/phpunit": "4.* || 5.*"
+	},
+	"autoload": {
+        "psr-0": {
+        	"": "src/",
+        	"Entities\\" : "application/models/entities/"
+        },
+        "psr-4": {
+      "MercadoPago\\": [
+        "src/MercadoPago/",
+        "tests/",
+        "src/MercadoPago/Generic/",
+        "src/MercadoPago/Entities/",
+        "src/MercadoPago/Entities/Shared/"
+      ]
+    }
+    }
+}
