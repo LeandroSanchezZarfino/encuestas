@@ -130,7 +130,10 @@ CREATE TABLE `pregunta` (
   `tipoPregunta` longtext COLLATE utf8_unicode_ci NOT NULL,
   `descripcion` longtext COLLATE utf8_unicode_ci NOT NULL,
   `sintesis` longtext COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `encuesta_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_AEE0E1F746844BA6` (`encuesta_id`),
+  CONSTRAINT `FK_AEE0E1F746844BA6` FOREIGN KEY (`encuesta_id`) REFERENCES `encuesta` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -355,4 +358,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-17 23:50:20
+-- Dump completed on 2020-03-18 10:14:18
