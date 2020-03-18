@@ -95,4 +95,16 @@ class Pregunta extends Activable {
         return $this->opciones;
     }
 
+    /**
+     * @return string
+     */
+    public function getSintesis(): string
+    {
+        return $this->sintesis;
+    }
+
+    public function tenesSintesis() : bool {
+        return !is_null($this->sintesis) && !empty($this->sintesis);
+    }
+
 }

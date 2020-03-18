@@ -61,4 +61,12 @@ class EncuestaContestada extends Persistible {
         $respuesta->setEncuestaContestada($this);
     }
 
+    /**
+     * @return ArrayCollection|Respuesta[]
+     */
+    public function getRespuestas()
+    {
+        return $this->respuestas;
+    }
+
 }

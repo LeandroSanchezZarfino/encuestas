@@ -42,4 +42,16 @@ class Encuesta extends Activable {
     {
         return $this->nombre;
     }
+
+    /**
+     * @return ArrayCollection|Pregunta[]
+     */
+    public function getPreguntas()
+    {
+        return $this->preguntas;
+    }
+
+    public function toJson() {
+
+    }
 }

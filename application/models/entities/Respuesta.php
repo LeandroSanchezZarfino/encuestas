@@ -95,4 +95,8 @@ class Respuesta extends Persistible {
     {
         $this->descripcionLibre = $descripcionLibre;
     }
+
+    public function respuestaSintetica(){
+
+    }
 }
