@@ -1,6 +1,8 @@
 <?php
 namespace Entities;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Class Encuesta
  * @package Entities
@@ -18,6 +20,12 @@ class Encuesta extends Activable {
      * @Column(name="nombre", type="text")
      */
     private $nombre;
+    /**
+     * @var ArrayCollection|Pregunta[]
+     * @OneToMany(targetEntity="Pregunta", mappedBy="encuesta", cascade={"all"}, fetch="EXTRA_LAZY")
+     */
+    private $preguntas;
+
 
     /**
      * @return \DateTime

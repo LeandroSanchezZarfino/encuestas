@@ -35,6 +35,12 @@ class Pregunta extends Activable {
      * @OneToMany(targetEntity="Opcion", mappedBy="pregunta", cascade={"all"}, fetch="EXTRA_LAZY")
      */
     private $opciones;
+    /**
+     * @var Encuesta
+     * @ManyToOne(targetEntity="Encuesta", inversedBy="preguntas")
+     * @JoinColumn(name="encuesta_id", referencedColumnName="id")
+     */
+    private $encuesta;
 
     public function __construct()
     {
